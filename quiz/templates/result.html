@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Result</title>
+{% endblock  %}
+{% block content %}
+
+<div class="container col-md-6-offset-2 pt-4">
+  
+    
+  
+  <table class="table table-striped ">
+    <thead class="table table-primary">
+      <tr>
+        
+        <th scope="col">Student</th>
+        <th scope="col">Category</th>
+        <th scope="col">No of question answered</th>
+        <th scope="col">Total Questions</th>
+        <th scope="col">Marks</th>
+      </tr>
+    </thead>
+    {% if res %}
+    <tbody>
+      
+      <tr>
+        <td>{{res.student}}</td>
+        <td>{{res.category}}</td>
+        <td>{{res.totalattemptquestion}}</td>
+        <td>{{res.toatalquestion}}</td>
+        <td>{{res.marks}}</td>
+      </tr>
+
+    </tbody>
+    <tbody>
+    {% else %}
+      <tbody>
+        <td colspan="5" class="table-active text-center">No data found</td>
+      </tbody>
+      {% endif %}
+  </table>
+
+</div>
+
+{% endblock %}

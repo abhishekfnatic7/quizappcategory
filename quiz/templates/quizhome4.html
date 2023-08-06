@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Quiz Home</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="container pt-5 col-md-6 col-md-offset-3">
+    {% if b > 0 %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for x in a %}
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="ms-3">{{forloop.counter}}. {{x.question}}</h4>
+            </div>
+            <div class="col-sm-4">
+                <h5 class="ms-3"> <span class="text-end">Marks {{x.marks}}</span></h5>
+            </div>
+
+            {% if forloop.counter|divisibleby:2 %}
+
+
+
+            <div class="col-sm-12">
+                <div class="form-check">
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="{{x.question}}" id="flexRadioDefault1" value=1>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            {{x.option1}}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="{{x.question}}" id="flexRadioDefault2" value=2>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            {{x.option2}}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="{{x.question}}" id="flexRadioDefault3" value=3>
+                        <label class="form-check-label" for="flexRadioDefault3">
+                            {{x.option3}}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="{{x.question}}" id="flexRadioDefault4" value=4>
+                        <label class="form-check-label" for="flexRadioDefault4">
+                            {{x.option4}}
+                        </label>
+                    </div>
+                </div>
+            </div>{% else %}
+            
+            <div class="col-sm-12">
+                <div class="form-check">
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="{{x.question}}" id="flexRadioDefault1" value=1>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            {{x.option1}}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="{{x.question}}" id="flexRadioDefault2" value=2>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            {{x.option2}}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="{{x.question}}" id="flexRadioDefault3" value=3>
+                        <label class="form-check-label" for="flexRadioDefault3">
+                            {{x.option3}}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="{{x.question}}" id="flexRadioDefault4" value=4>
+                        <label class="form-check-label" for="flexRadioDefault4">
+                            {{x.option4}}
+                        </label>
+                    </div>
+                </div>
+            </div>{% endif %}
+
+        </div>
+
+
+        {% endfor %}
+
+        <input type="submit" class="btn ms-4 btn-danger" value="submit">
+    </form>
+    {% else %}
+    <h1>No Data Found</h1>
+    {% endif %}
+
+</div>
+
+{% endblock %}
